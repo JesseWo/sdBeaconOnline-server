@@ -1,0 +1,11 @@
+node_modules/
+log/
+logs/
+*.log
+npm-debug.log
+.DS_Store
+.idea
+.vscode
+*.iml
+public/
+demo*
