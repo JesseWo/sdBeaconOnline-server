@@ -6,13 +6,13 @@ const fs = require('fs');
 const path = require('path');
 
 function addMapping(router, mapping) {
-    for (var url in mapping) {
+    for (let url in mapping) {
         if (url.startsWith('GET ')) {
-            var path = url.substring(4);
+            let path = url.substring(4);
             router.get(path, mapping[url]);
             console.log(`register URL mapping: GET ${path}`);
         } else if (url.startsWith('POST ')) {
-            var path = url.substring(5);
+            let path = url.substring(5);
             router.post(path, mapping[url]);
             console.log(`register URL mapping: POST ${path}`);
         } else {
@@ -22,13 +22,13 @@ function addMapping(router, mapping) {
 }
 
 function addControllers(router, controllers_dir) {
-    var ctl_dir = path.join(__dirname, controllers_dir);
-    var files = fs.readdirSync(ctl_dir);
-    var js_files = files.filter((f) => {
+    let ctl_dir = path.join(__dirname, controllers_dir);
+    let files = fs.readdirSync(ctl_dir);
+    let js_files = files.filter((f) => {
         return f.endsWith('.js');
     });
 
-    for (var f of js_files) {
+    for (let f of js_files) {
         console.log(`process controller: ${f}...`);
         let mapping = require(path.join(ctl_dir, f));
         addMapping(router, mapping);

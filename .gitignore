@@ -9,3 +9,6 @@ npm-debug.log
 *.iml
 public/
 demo*
+package-lock.json
+tmp/
+test/

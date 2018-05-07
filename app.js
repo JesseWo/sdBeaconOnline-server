@@ -3,18 +3,29 @@ const Koa = require('koa');
 // 创建一个Koa对象表示web app本身:
 const app = new Koa();
 
-const bodyParser = require('koa-bodyparser');
+const logger = require('koa-logger');
+// const bodyParser = require('koa-bodyparser');
+// https://github.com/dlau/koa-body
+const koaBody = require('koa-body')({
+    multipart: true,    //支持 multipart/form-data
+    formidable: {   //https://github.com/felixge/node-formidable
+        uploadDir: './tmp',
+        keepExtensions: true
+    }
+});
+
 const controller = require('./controller');
 const dateUtils = require('./utils/dateUtils');
 
+app.use(logger());
 // 对于任何请求，app将调用该异步函数处理请求：
 app.use(async (ctx, next) => {
     await next();
-    console.log(`${dateUtils.getCurrentTime()} ${ctx.request.method} ${ctx.request.url}`);
+    console.log(`${dateUtils.getCurrentTime()} ${ctx.request.ip} ${ctx.request.method} ${ctx.request.url}`);
 });
 
 //parse request body
-app.use(bodyParser());
+app.use(koaBody);
 
 // add router middleware:
 app.use(controller())
