@@ -6,10 +6,10 @@ const tesseract = require('node-tesseract');
 
 /**
  * 查询题库Id
- * @param {*} ctx
- * @param {*} next
+ * @param ctx
+ * @returns {Promise<void>}
  */
-let getChapterid = async (ctx, next) => {
+let getChapterid = async (ctx) => {
     console.log(`getChapterid userId: ${ctx.query.userId}`);
 
     let result = require('../data/qb_chapterid.json')
@@ -18,13 +18,15 @@ let getChapterid = async (ctx, next) => {
 
 /**
  * 更新错题集
- * @param {*} ctx
- * @param {*} next
+ * @param ctx
+ * @param next
+ * @returns {Promise<void>}
  */
 let updateFailureList = async (ctx, next) => {
     // console.log(`${JSON.stringify(ctx.request.header)}`);
 
     console.log(`updateFailureList: ${JSON.stringify(ctx.request.body)}`);
+    //todo 存入MongoDB
 
     ctx.response.body = {
         status: 0,
@@ -32,6 +34,11 @@ let updateFailureList = async (ctx, next) => {
     };
 };
 
+/**
+ * 验证码ocr
+ * @param ctx
+ * @returns {Promise<void>}
+ */
 let vcodeOcr = async (ctx) => {
         console.log(`${JSON.stringify(ctx.request.header)}`);
         // console.log(ctx.request.body.fields);
