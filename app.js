@@ -9,7 +9,7 @@ const logger = require('koa-logger');
 const koaBody = require('koa-body')({
     multipart: true,    //支持 multipart/form-data
     formidable: {   //https://github.com/felixge/node-formidable
-        uploadDir: './tmp',
+        // uploadDir: './tmp', //使用默认的os.tmpdir()目录,系统定期自动清理
         keepExtensions: true
     }
 });
