@@ -3,7 +3,7 @@ const Koa = require('koa');
 // 创建一个Koa对象表示web app本身:
 const app = new Koa();
 
-const logger = require('./utils/logger');
+const logger = require('koa-logger');
 
 // https://github.com/dlau/koa-body
 const koaBody = require('koa-body')({
@@ -27,7 +27,7 @@ app.use(async (ctx, next) => {
 app.use(koaBody);
 
 // add router middleware:
-app.use(controller())
+app.use(controller());
 
 // 在端口3000监听:
 app.listen(3110);

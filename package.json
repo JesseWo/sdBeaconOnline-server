@@ -2,12 +2,20 @@
   "name": "sd_beacon_online_server",
   "version": "0.9.0",
   "description": "灯塔在线答题助手服务端",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "wangzhx",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/xingzhenwang/sdBeaconOnline-server.git"
+  },
+  "bugs": {
+    "url": "https://gitee.com/xingzhenwang/sdBeaconOnline-server/issues",
+    "email": "wangzhenxingvip@gmail.com"
+  },
   "license": "ISC",
   "dependencies": {
     "bytes": "^3.0.0",
@@ -17,6 +25,7 @@
     "koa-router": "^7.0.0",
     "node-tesseract": "latest",
     "passthrough-counter": "latest",
-    "chalk": "latest"
+    "chalk": "latest",
+    "koa-logger": "https://github.com/JesseWo/logger.git"
   }
 }
