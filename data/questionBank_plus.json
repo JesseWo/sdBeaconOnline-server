@@ -41,5 +41,48 @@
         "isRight": "0"
       }
     ]
+  },
+  {
+    "id": "v16e7gv2egitgpi4o967q2o6vn",
+    "orderId": 307,
+    "roundId": null,
+    "roundOnlyId": "QU2EovtNHxTWqC7XBT053-",
+    "chapterId": null,
+    "subjectTitle": "党的十八大以来，我国国内生产总值从五十四万亿元增长到八十万亿元，对世界经济增长贡献率超过（）。",
+    "subjectType": "0",
+    "status": null,
+    "answer": "B",
+    "totalRight": null,
+    "totalWrong": null,
+    "difficultyLevel": null,
+    "createTime": null,
+    "examFlag": null,
+    "subjectId": null,
+    "optionInfoList": [
+      {
+        "id": "32urljb6dihleqdmng16rhh3c9",
+        "optionTitle": "0.25",
+        "optionType": "A",
+        "isRight": "0"
+      },
+      {
+        "id": "4bi3n3fa74iv7rn7svch2ogk5s",
+        "optionTitle": "0.3",
+        "optionType": "B",
+        "isRight": "1"
+      },
+      {
+        "id": "t577ac7is0gr3o0bmanhfqu90m",
+        "optionTitle": "0.35",
+        "optionType": "C",
+        "isRight": "0"
+      },
+      {
+        "id": "oe6bh0ivuog5kolq395i4gtn08",
+        "optionTitle": "0.4",
+        "optionType": "D",
+        "isRight": "0"
+      }
+    ]
   }
 ]

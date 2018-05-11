@@ -5,8 +5,8 @@ const path = require('path');
 const tesseract = require('node-tesseract');
 const query = require('../core/queryEngine');
 
-const QUESTION_BANK_PLUS_PATH = '../data/questionBank_plus';
-const QUESTION_BANK_PATH = '../data/questionBank';
+const QUESTION_BANK_PLUS_PATH = '../data/questionBank_plus.json';
+const QUESTION_BANK_PATH = '../data/questionBank.json';
 
 /**
  * 更新错题集
