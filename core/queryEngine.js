@@ -14,12 +14,13 @@ const FAILURELIST_PATH = '../data/failureList.json';
 function query(questionBank, subjectInfoList) {
     let answerList = [];
     let failureMap = {};
+    let queryLog = [];
     //遍历试题
     for (let i = 0; i < subjectInfoList.length; i++) {
         const subjectInfo = subjectInfoList[i];
         const {subjectTitle, subjectType, optionInfoList} = subjectInfo;
 
-        log.i(`${i + 1}.[${subjectType === '0' ? '单选' : '多选'}] ${subjectTitle}`);
+        queryLog.push(`${i + 1}.[${subjectType === '0' ? '单选' : '多选'}] ${subjectTitle}`);
 
         //遍历题库查询答案
         let correctOptionArr;
@@ -49,7 +50,7 @@ function query(questionBank, subjectInfoList) {
         }
         //step2: ()截断匹配
         if (!correctOptionArr || correctOptionArr.length === 0) {
-            log.d('完全匹配失败, 尝试截断模糊匹配...');
+            queryLog.push('完全匹配失败, 尝试截断模糊匹配...');
             for (let j = 0; j < questionBank.length; j++) {
                 const answerSubjectInfo = questionBank[j];
                 const answerSubjectTitle = answerSubjectInfo.subjectTitle;
@@ -88,7 +89,8 @@ function query(questionBank, subjectInfoList) {
                 correctedOptsDetails = correctedOptsDetailArr[0];
             }
 
-            log.i(`答案:${correctedOpts}\n${correctedOptsDetails}\n`);
+            queryLog.push(`答案:${correctedOpts}`);
+            queryLog.push(`${correctedOptsDetails}\n`);
 
             //构建查询结果
             let answer = {};
@@ -97,7 +99,7 @@ function query(questionBank, subjectInfoList) {
             answerList.push(answer);
         } else {
             failureMap[i] = subjectInfo;
-            log.e('答案查询失败!\n');
+            queryLog.push('答案查询失败!\n');
         }
     }
     //将自动查询失败的问题 显示给用户
@@ -139,7 +141,7 @@ function query(questionBank, subjectInfoList) {
         log.e(`有${anies.length}个问题查询失败!\n`)
     }
 
-    return {answerList, failureMap};
+    return {answerList, failureMap, queryLog: queryLog.join("\n")};
 }
 
 module.exports = query;

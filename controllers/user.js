@@ -14,7 +14,7 @@ const QUESTION_BANK_PATH = '../data/questionBank.json';
  * @param next
  * @returns {Promise<void>}
  */
-let updateFailureList = async ctx => {
+async function updateFailureList(ctx) {
     let failureList = ctx.request.body;
     console.log(`updateFailureList: ${JSON.stringify(failureList)}`);
 
@@ -56,14 +56,14 @@ let updateFailureList = async ctx => {
         status: 0,
         msg: `上传成功, 更新了${newList.length}条错题记录!`
     };
-};
+}
 
 /**
  * 验证码ocr
  * @param ctx
  * @returns {Promise<void>}
  */
-let vcodeOcr = async (ctx) => {
+async function vcodeOcr(ctx) {
     console.log(`${JSON.stringify(ctx.request.header)}`);
     // console.log(ctx.request.body.fields);
     let files = ctx.request.body.files;
@@ -96,7 +96,7 @@ let vcodeOcr = async (ctx) => {
         }
         break;
     }
-};
+}
 
 async function queryAnswer(ctx) {
     const {subjectInfoList, userId} = ctx.request.body;
