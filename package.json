@@ -11,24 +11,20 @@
   "author": "wangzhx",
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/xingzhenwang/sdBeaconOnline-server.git"
+    "url": "https://github.com/JesseWo/sdBeaconOnlineBot-server.git"
   },
   "bugs": {
-    "url": "https://gitee.com/xingzhenwang/sdBeaconOnline-server/issues",
+    "url": "https://github.com/JesseWo/sdBeaconOnlineBot-server/issues",
     "email": "wangzhenxingvip@gmail.com"
   },
   "license": "ISC",
   "dependencies": {
-    "bytes": "^3.0.0",
-    "chalk": "latest",
     "colors": "^1.2.4",
-    "humanize-number": "latest",
     "koa": "^2.0.0",
     "koa-body": "^2.5.0",
     "koa-logger": "https://github.com/JesseWo/logger.git",
     "koa-router": "^7.0.0",
     "node-tesseract": "latest",
-    "passthrough-counter": "latest",
     "superagent": "^3.8.3"
   }
 }
