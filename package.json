@@ -1,6 +1,6 @@
 {
   "name": "sd_beacon_online_server",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "灯塔在线答题助手服务端",
   "main": "app.js",
   "scripts": {
