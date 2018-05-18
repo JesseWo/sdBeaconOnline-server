@@ -1,3 +1,5 @@
+const random = require('../utils/randomUtils');
+
 /**
  * mock 点击数据
  * 下一题按钮

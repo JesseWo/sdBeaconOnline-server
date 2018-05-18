@@ -29,7 +29,7 @@ app.use(koaBody);
 // add router middleware:
 app.use(controller());
 
-// 在端口3000监听:
+// 在端口3110监听:
 app.listen(3110);
 
 console.log('app started at port 3110...');
