@@ -16,6 +16,10 @@
 ```
 npm install
 ```
+更新题库
+```
+npm run updateQB
+```
 
 运行
 ```

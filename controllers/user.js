@@ -4,9 +4,9 @@ const fs = require('fs');
 const path = require('path');
 const tesseract = require('node-tesseract');
 const query = require('../core/queryEngine');
+const mockData = require('../core/mockData');
 
 const QUESTION_BANK_PLUS_PATH = '../data/questionBank_plus.json';
-const QUESTION_BANK_PATH = '../data/questionBank.json';
 
 /**
  * 更新错题集
@@ -99,19 +99,30 @@ async function vcodeOcr(ctx) {
 }
 
 async function queryAnswer(ctx) {
-    const {subjectInfoList, userId} = ctx.request.body;
+    const {subject: {recordId, roundOnlyId, orderId, totalSubject, subjectInfoList}, userId} = ctx.request.body;
     console.log(`queryAnswer userId: ${userId}`);
+    //查询到的答案
+    let {answerList, failureMap, queryLog} = query(subjectInfoList);
+    //模拟点击行为数据
+    let {sameNum, clickX, clickY} = mockData(totalSubject);
+    console.log(JSON.stringify(failureMap));
 
-    let qb = require(QUESTION_BANK_PATH);
-    let qbPlus = require(QUESTION_BANK_PLUS_PATH);
-    qb.push(...qbPlus);
-
-    let result = query(qb, subjectInfoList);
-    console.log(JSON.stringify(result.failureMap));
     ctx.response.body = {
         status: 0,
         msg: 'query success!',
-        data: result
+        data: {
+            failureMap,
+            queryLog,
+            answer: {
+                recordId,
+                roundOnlyId,
+                orderId,
+                subjectInfoList: answerList,
+                sameNum,
+                clickX,
+                clickY
+            }
+        }
     };
 }
 

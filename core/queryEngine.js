@@ -5,13 +5,21 @@ const fs = require('fs');
 
 //错题集
 const FAILURELIST_PATH = '../data/failureList.json';
+//题库
+const QUESTION_BANK_PLUS_PATH = '../data/questionBank_plus.json';
+const QUESTION_BANK_PATH = '../data/questionBank.json';
+
+//构建并合并题库
+let questionBank = require(QUESTION_BANK_PATH);
+let qbPlus = require(QUESTION_BANK_PLUS_PATH);
+questionBank.push(...qbPlus);
 
 /**
  *
- * @param {题库} questionBank
- * @param {试题} subjectInfoList
+ * @param subjectInfoList 试题
+ * @returns {{answerList: Array, failureMap, queryLog: string}}
  */
-function query(questionBank, subjectInfoList) {
+function query(subjectInfoList) {
     let answerList = [];
     let failureMap = {};
     let queryLog = [];
