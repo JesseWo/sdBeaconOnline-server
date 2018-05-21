@@ -2,6 +2,7 @@
 
 const log = require('../utils/logUtils');
 const fs = require('fs');
+const path = require('path');
 
 //错题集
 const FAILURELIST_PATH = '../data/failureList.json';
@@ -9,17 +10,17 @@ const FAILURELIST_PATH = '../data/failureList.json';
 const QUESTION_BANK_PLUS_PATH = '../data/questionBank_plus.json';
 const QUESTION_BANK_PATH = '../data/questionBank.json';
 
-//构建并合并题库
-let questionBank = require(QUESTION_BANK_PATH);
-let qbPlus = require(QUESTION_BANK_PLUS_PATH);
-questionBank.push(...qbPlus);
-
 /**
  *
  * @param subjectInfoList 试题
  * @returns {{answerList: Array, failureMap, queryLog: string}}
  */
 function query(subjectInfoList) {
+    //构建并合并题库
+    let questionBank = require(QUESTION_BANK_PATH);
+    let qbPlus = JSON.parse(fs.readFileSync(path.resolve(__dirname, QUESTION_BANK_PLUS_PATH), 'utf-8'));
+    questionBank.push(...qbPlus);
+
     let answerList = [];
     let failureMap = {};
     let queryLog = [];
