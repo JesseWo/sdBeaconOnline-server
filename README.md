@@ -1,4 +1,4 @@
-## sdBeaconOnline Server
+## sdBoBot-Server
 [灯塔在线答题机器人](https://github.com/JesseWo/sdBeaconOnlineBot) 的服务端.
 
 集成功能
@@ -10,7 +10,7 @@
 安装OCR库
 使用了Google开源的 [tesseract](https://github.com/tesseract-ocr/tesseract)
 
-各个平台的安装方式:https://github.com/tesseract-ocr/tesseract/wiki
+[各个平台的安装方式](https://github.com/tesseract-ocr/tesseract/wiki)
 
 依赖
 ```
